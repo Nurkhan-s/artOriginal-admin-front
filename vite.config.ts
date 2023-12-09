@@ -10,7 +10,16 @@ dns.setDefaultResultOrder('verbatim')
 export default defineConfig({
   server: {
     port: 4000,
-    host: "localhost"
+    host: "localhost",
+    proxy: {
+      '/api/': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        secure: false,
+        ws: true,
+        cookieDomainRewrite: 'localhost',
+      }
+    }
   },
   plugins: [
     vue(),
@@ -19,5 +28,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 })

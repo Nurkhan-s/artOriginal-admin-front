@@ -10,11 +10,14 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "pinia": "^2.1.7",
     "sass": "^1.64.1",
+    "swagger-typescript-api": "13.0.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4",
-    "vuetify": "^3.3.12"
+    "vuetify": "^3.3.12",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.0",

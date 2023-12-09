@@ -1,0 +1,294 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/pictures": {
+      "get": {
+        "operationId": "PictureController_getPictures",
+        "summary": "Get pictures",
+        "description": "Get all pictures",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pictures"
+        ]
+      },
+      "post": {
+        "operationId": "PictureController_createPicture",
+        "summary": "Create picture",
+        "description": "Add new picture",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePictureDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pictures"
+        ]
+      }
+    },
+    "/api/pictures/{id}": {
+      "put": {
+        "operationId": "PictureController_editPictureById",
+        "summary": "Update picture",
+        "description": "Update picture by id",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePictureDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pictures"
+        ]
+      },
+      "delete": {
+        "operationId": "PictureController_deletePictureById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Pictures"
+        ]
+      }
+    },
+    "/api/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "summary": "Admin",
+        "description": "password",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth",
+          "Auth"
+        ]
+      }
+    },
+    "/api/auth/registration": {
+      "post": {
+        "operationId": "AuthController_registration",
+        "summary": "Admin",
+        "description": "password",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Pictures example",
+    "description": "The artOriginal/pictures API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CreatePictureDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Рассвет",
+            "description": "Название картинки"
+          },
+          "year": {
+            "type": "number",
+            "example": 1999,
+            "description": "Год создания картинки"
+          },
+          "author": {
+            "type": "string",
+            "example": "Кастеев А",
+            "description": "Автор картинки"
+          },
+          "size": {
+            "type": "string",
+            "example": "400x400",
+            "description": "Размер картинки"
+          },
+          "type": {
+            "type": "string",
+            "example": "Маслом",
+            "description": "Тип картинки"
+          },
+          "price": {
+            "type": "string",
+            "example": "1 000 000 KZT",
+            "description": "Прайс картинки"
+          },
+          "orientation": {
+            "type": "string",
+            "example": "VERTICAL",
+            "description": "Ориентация картинки"
+          },
+          "pictures": {
+            "type": "string",
+            "example": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.indiewire.com%2Ffeatures%2Fgeneral%2Fbaz-luhrmann-the-great-gatsby-underrated-leonardo-dicaprio-carey-mulligan-1201799900%2F&psig=AOvVaw3qL24N30HiEkr9HEE8E8Vm&ust=1692608559049000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLD00rLw6oADFQAAAAAdAAAAABAD",
+            "description": "Ссылка на картинку"
+          }
+        },
+        "required": [
+          "name",
+          "year",
+          "author",
+          "size",
+          "type",
+          "price",
+          "orientation",
+          "pictures"
+        ]
+      },
+      "UpdatePictureDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Рассвет",
+            "description": "Название картинки"
+          },
+          "year": {
+            "type": "number",
+            "example": 1999,
+            "description": "Год создания картинки"
+          },
+          "author": {
+            "type": "string",
+            "example": "Кастеев А",
+            "description": "Автор картинки"
+          },
+          "pictures": {
+            "type": "string",
+            "example": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.indiewire.com%2Ffeatures%2Fgeneral%2Fbaz-luhrmann-the-great-gatsby-underrated-leonardo-dicaprio-carey-mulligan-1201799900%2F&psig=AOvVaw3qL24N30HiEkr9HEE8E8Vm&ust=1692608559049000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCLD00rLw6oADFQAAAAAdAAAAABAD",
+            "description": "Ссылка на картинку"
+          },
+          "size": {
+            "type": "string",
+            "example": "400x400",
+            "description": "Размер картинки"
+          },
+          "type": {
+            "type": "string",
+            "example": "Маслом",
+            "description": "Тип картинки"
+          }
+        },
+        "required": [
+          "name",
+          "year",
+          "author",
+          "pictures",
+          "size",
+          "type"
+        ]
+      },
+      "AuthDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "Admin",
+            "description": "Имя пользователя"
+          },
+          "password": {
+            "type": "string",
+            "example": "Password",
+            "description": "Пароль"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      }
+    }
+  }
+}
